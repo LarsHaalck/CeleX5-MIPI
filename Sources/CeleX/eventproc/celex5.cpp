@@ -2778,7 +2778,7 @@ int CeleX5::denoisingMaskByEventTime(const cv::Mat& countEventImg, double timele
 
 	int timeslicecount = timelength / 30.0;//time step for density estimation, assigned by experience
 	int thresh = timeslicecount * 5;
-	cv::threshold(convimg, denoiseMaskImg, thresh, 255, CV_THRESH_BINARY);
+	cv::threshold(convimg, denoiseMaskImg, thresh, 255, cv::THRESH_BINARY);
 	denoiseMaskImg.convertTo(denoiseMaskImg, CV_8UC1);
 	return 1;
 }

@@ -6,12 +6,12 @@ MAKEFILE      = Makefile
 
 ####### Compiler, tools and options
 
-CC            = gcc
-CXX           = g++
+CC            = gcc -fdiagnostics-color=always
+CXX           = g++ -fdiagnostics-color=always
 DEFINES       = -DCELEX_LIBRARY
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../CeleX -I.
+INCPATH       = -I../CeleX -I. -I/usr/include/opencv4
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
 MKDIR         = mkdir -p
@@ -29,7 +29,7 @@ TAR           = tar -cf
 COMPRESS      = gzip -9f
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath, -shared -Wl,-soname,libCeleX.so
-LIBS          = $(SUBLIBS) -lpthread -L/usr/lib/x86_64-linux-gnu/ -lusb-1.0 `pkg-config --cflags --libs opencv`
+LIBS          = $(SUBLIBS) -lpthread -L/usr/lib/x86_64-linux-gnu/ -lusb-1.0 `pkg-config --cflags --libs opencv4`
 AR            = ar cqs
 RANLIB        = 
 SED           = sed

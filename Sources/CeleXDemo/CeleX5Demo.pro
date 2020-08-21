@@ -21,15 +21,13 @@ win32 {
 }
 else {
 
-    INCLUDEPATH += /usr/local/include \
-                   /usr/local/include/opencv \
-                   /usr/local/include/opencv2
+    INCLUDEPATH += /usr/include/opencv4/
 
-    LIBS += /usr/local/lib/libopencv_highgui.so \
-            /usr/local/lib/libopencv_core.so    \
-            /usr/local/lib/libopencv_imgproc.so \
-            /usr/local/lib/libopencv_videoio.so \
-            /usr/lib/x86_64-linux-gnu/libusb-1.0.so
+    LIBS += -lopencv_highgui \
+            -lopencv_core    \
+            -lopencv_imgproc \
+            -lopencv_videoio \
+            -lusb
 }
 
 win32 {
